@@ -1,0 +1,87 @@
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: League Spartan;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background-color:#ECECEC;
+  border-radius: 12px;
+}
+
+#quizTitle {
+  font-size: 32px;
+  font-weight: 600px;
+  margin-bottom: 20px;
+  color: #170202;
+}
+#name{
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 29.02px;
+  color: #170202;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #717171;
+  background-color: #f7f7f7;
+}
+
+.quiz-intro p {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+button {
+  padding: 10px 50px;
+  font-size: 14px;
+  color: white;
+  margin-top: 40px;
+  background-color: #268bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .container {
+      padding: 20px;
+  }
+
+  h1 {
+      font-size: 1.5em;
+  }
+}
+

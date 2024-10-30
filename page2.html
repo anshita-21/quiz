@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page 2</title>
+    <link rel="stylesheet" href="page2.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p id="quizTitle">Interactive Quiz</p>
+            <p id="userGreeting">Hi, User</p>
+        </header>
+        
+        <div class="quiz-container">
+            <div class="question-section">
+                <div class="question-number">Question 1</div>
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <aside class="info-panel">
+                <p>Note:</p>
+                <ul>
+                    <li>You cannot go back once you move to the next question</li>
+                    <li>Each question has a timer of 1 minute</li>
+                    <li>You can choose only one option at a time</li>
+                </ul>
+                <div id="a">
+                    <p>You have <br><span id="timeLeft">00:40s </span> time left<br> to answer this question</p>
+                    <p id="timeLeft">Score: <span id="score">0</span></p>
+                </div>
+            </aside>
+        </div>
+        <button id="checkButton" class="check-button">Check</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="page2.js"></script>
+</body>
+</html>
