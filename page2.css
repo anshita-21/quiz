@@ -146,6 +146,11 @@ header p {
     color: #333;
     pointer-events: none;
 }
+.option-button.incorrect {
+    background-color: #e3481d;
+    color: #333;
+    pointer-events: none;
+}
 
 .remark {
     margin-top: 40px;
@@ -160,3 +165,42 @@ header p {
 .remark.incorrect {
     color: red;
 }
+.option-button {
+    position: relative;
+    padding-right: 20px; /* Add padding to ensure spacing for the icon */
+}
+
+.option-button + i {
+    position: absolute;
+    left: 450px; 
+    top: 45%;
+    transform: translateY(-50%);
+}
+.option-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px; /* Adjust if needed */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.option-button i {
+    margin-left: 8px; /* Space between text and icon */
+}
+.correct-icon {
+    color: green;
+}
+.option-wrapper {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option-wrapper i {
+    margin-left: 8px;
+}
+

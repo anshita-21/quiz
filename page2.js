@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let currentQuestionIndex = 0;
             let score = 0;
             let timeLeft = 40;
-            let timer; 
+            let timer;
             let selectedAnswerIndex = null;
 
             function loadQuestion() {
-                clearInterval(timer); 
-                selectedAnswerIndex = null; 
+                clearInterval(timer);
+                selectedAnswerIndex = null;
                 const questionData = quizData.questions[currentQuestionIndex];
 
                 document.querySelector('.question-number').textContent = `Question ${currentQuestionIndex + 1}`;
@@ -36,17 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 document.getElementById('checkButton').textContent = "Check";
-                document.getElementById('checkButton').disabled = true; 
-                document.getElementById('nextButton').style.display = 'none'; 
-                document.getElementById('checkButton').style.display = 'block'; 
+                document.getElementById('checkButton').disabled = true;
+                document.getElementById('nextButton').style.display = 'none';
+                document.getElementById('checkButton').style.display = 'block';
 
-                startTimer(); 
+                startTimer();
             }
 
             const timerElement = document.getElementById('timeLeft');
             function startTimer() {
                 timeLeft = 40;
-                timerElement.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}s`; 
+                timerElement.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}s`;
                 timer = setInterval(() => {
                     if (timeLeft > 0) {
                         timeLeft--;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             function selectAnswer(selectedIndex) {
-                selectedAnswerIndex = selectedIndex; 
+                selectedAnswerIndex = selectedIndex;
                 const optionsContainer = document.querySelector('#optionsContainer');
                 const optionButtons = optionsContainer.querySelectorAll('.option-button');
 
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.getElementById('checkButton').addEventListener('click', () => {
                 if (selectedAnswerIndex !== null) {
-                    clearInterval(timer); 
+                    clearInterval(timer);
                     const questionData = quizData.questions[currentQuestionIndex];
                     const optionsContainer = document.querySelector('#optionsContainer');
                     const optionButtons = optionsContainer.querySelectorAll('.option-button');
@@ -84,16 +84,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     next.textContent = '';
 
                     if (selectedAnswerIndex === questionData.correctAnswer) {
+
                         optionButtons[selectedAnswerIndex].classList.add('correct');
-                        score += questionData.score;  
+                        // optionButtons[selectedAnswerIndex].innerHTML += ' <i class="fas fa-check-circle" style="color: green; margin-left: 8px;"></i>';
+                        optionButtons[selectedAnswerIndex].innerHTML += '<i class="fas fa-check-circle correct-icon"></i>';
+
+                        score += questionData.score;
                         remark.textContent = "Correct Answer";
                         remark.style.color = 'green';
                     } else {
+
                         optionButtons[selectedAnswerIndex].classList.add('incorrect');
+                        // optionButtons[selectedAnswerIndex].innerHTML += ' <i class="fas fa-times-circle" style="color: red; margin-left: 8px;"></i>';
+
+
                         optionButtons[questionData.correctAnswer].classList.add('correct');
-                        remark.textContent = `Wrong Answer`;
+                        optionButtons[questionData.correctAnswer].innerHTML += ' <i class="fas fa-check-circle" style="color: green; margin-left: 8px;"></i>';
+
+                        remark.textContent = "Wrong Answer";
                         remark.style.color = 'red';
                     }
+
                     next.textContent = " Please click on Next";
                     next.style.color = 'black';
 
@@ -104,9 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            
             document.getElementById('nextButton').addEventListener('click', loadNextQuestion);
 
-            let questionScores = []; 
+            let questionScores = [];
 
             function loadNextQuestion() {
                 if (currentQuestionIndex < quizData.questions.length - 1) {
@@ -123,15 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     showFinalResult();
                 }
+
             }
-            
+
             function showFinalResult() {
                 localStorage.setItem('totalScore', score);
                 localStorage.setItem('questionScores', JSON.stringify(questionScores));
-            
+
                 window.location.href = 'page3.html';
             }
-            
+
 
             loadQuestion();
         })
