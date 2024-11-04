@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link href="https://fonts.googleapis.com/css?family=League+Spartan:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+    <link rel="stylesheet" href="page3.css">
+</head>
+<body>
+    <p id="quizTitle">Interactive Quiz</p><br>
+    <div id="finalResultPage">
+        <p id="finalScoreMessage"></p>
+    </div>
+    <br><br>
+    <div id="finalResultPage">
+        <ul id="individualScoresList"></ul>
+    </div>
+    
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('userName');
+            const totalScore = localStorage.getItem('totalScore');
+            const questionScores = JSON.parse(localStorage.getItem('questionScores')) || [];
+
+            document.getElementById('finalScoreMessage').innerHTML = `Hey ${userName}, you have scored <br><br> ${totalScore} points`;
+
+            const individualScoresList = document.getElementById('individualScoresList');
+            questionScores.forEach((qScore, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Question ${index + 1}: Score: ${qScore.score}`;
+                individualScoresList.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>

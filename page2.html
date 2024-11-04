@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <p id="quizTitle">Interactive Quiz</p>
-            <p id="userGreeting">Hi, User</p>
+            <p id="displayedName">Hi</p>
         </header>
         
         <div class="quiz-container">
@@ -18,6 +18,7 @@
                 <div class="question-number">Question 1</div>
                 <div class="question-text" id="questionText"></div>
                 <div class="options" id="optionsContainer"></div>
+                <div class="remark" id="remark"><span id="next"></span></div>
             </div>
 
             <aside class="info-panel">
@@ -28,12 +29,15 @@
                     <li>You can choose only one option at a time</li>
                 </ul>
                 <div id="a">
-                    <p>You have <br><span id="timeLeft">00:40s </span> time left<br> to answer this question</p>
-                    <p id="timeLeft">Score: <span id="score">0</span></p>
+                    <p>You have <br><span id="timeLeft">00:40s</span> time left<br> to answer this question</p>
+                    <p>Score: <span id="score">0</span></p>
                 </div>
             </aside>
         </div>
-        <button id="checkButton" class="check-button">Check</button>
+        <div class="b">
+            <button id="checkButton" class="check-button">Check</button>
+            <button id="nextButton" class="next-button" style="display: none;">Next</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

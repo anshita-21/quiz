@@ -62,7 +62,7 @@ header p {
 }
 
 .question-text {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 22.08px;
     margin-bottom: 20px;
 }
@@ -72,15 +72,16 @@ header p {
     flex-direction: column;
     gap: 10px;
     width: 400px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .option-button {
-    padding: 10px ;
+    padding: 10px 20px;
     background-color: #C9DCF8;
     border: none;
     border-radius: 10px;
     font-size: 18px;
+    text-align: left;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -89,21 +90,23 @@ header p {
     background-color: #9ec5fe;
 }
 
-.check-button {
+.check-button, .next-button {
     margin-top: 20px;
-    padding: 10px 50px;
+    padding: 12px 50px;
     background-color: #268bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
 }
 
-.check-button:hover {
+.check-button:hover, .next-button:hover {
     background-color: #0056b3;
 }
-
+.check-button:active{
+   border: 2px solid #0077FF;
+}
 .info-panel {
     flex: 0.5;
     margin-left: 20px;
@@ -132,4 +135,28 @@ header p {
     margin-top: 50px;
     color:#170202;
     line-height: 20.02px;
-  }
+}
+.b{
+    display: flex;
+    justify-content: center;
+}
+
+.option-button.correct {
+    background-color: #b2e0b2;
+    color: #333;
+    pointer-events: none;
+}
+
+.remark {
+    margin-top: 40px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.remark.correct {
+    color: green;
+}
+
+.remark.incorrect {
+    color: red;
+}
