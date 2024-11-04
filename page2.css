@@ -203,4 +203,16 @@ header p {
 .option-wrapper i {
     margin-left: 8px;
 }
+.option-button {
+    position: relative; /* Make the button a positioning context */
+    padding-right: 30px; /* Space for the icon */
+}
+
+.correct-icon {
+    position: absolute; 
+    right: -30px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    color: green; 
+}
 

@@ -87,7 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         optionButtons[selectedAnswerIndex].classList.add('correct');
                         // optionButtons[selectedAnswerIndex].innerHTML += ' <i class="fas fa-check-circle" style="color: green; margin-left: 8px;"></i>';
-                        optionButtons[selectedAnswerIndex].innerHTML += '<i class="fas fa-check-circle correct-icon"></i>';
+                        // optionButtons[selectedAnswerIndex].innerHTML += '<i class="fas fa-check-circle correct-icon"></i>';
+                        optionButtons[selectedAnswerIndex].innerHTML = `
+    ${questionData.choices[selectedAnswerIndex]}
+    <i class="fas fa-check-circle correct-icon"></i>
+`;
+
 
                         score += questionData.score;
                         remark.textContent = "Correct Answer";
@@ -95,12 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
 
                         optionButtons[selectedAnswerIndex].classList.add('incorrect');
-                        // optionButtons[selectedAnswerIndex].innerHTML += ' <i class="fas fa-times-circle" style="color: red; margin-left: 8px;"></i>';
-
-
+                 
                         optionButtons[questionData.correctAnswer].classList.add('correct');
-                        optionButtons[questionData.correctAnswer].innerHTML += ' <i class="fas fa-check-circle" style="color: green; margin-left: 8px;"></i>';
 
+                        optionButtons[questionData.correctAnswer].innerHTML = `
+                        ${questionData.choices[questionData.correctAnswer]}
+                        <i class="fas fa-check-circle correct-icon"></i>
+                    `;
                         remark.textContent = "Wrong Answer";
                         remark.style.color = 'red';
                     }
